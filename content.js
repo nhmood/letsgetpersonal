@@ -71,4 +71,32 @@ function movePersonal(){
 }
 
 
-movePersonal();
+// get state from chrome storage
+async function getState(){
+  // wrap the chrome.storage.local.get call in a promise such that we can
+  // await it and configure components synchronously
+  var p = new Promise(function(resolve, reject){
+    chrome.storage.local.get('lgp_enabled', function(data) {
+      resolve( data.lgp_enabled );
+    });
+  });
+
+  // we need to await the state here in case it has never been set before
+  // if not set, we need to initialize it (to true)
+  var state = await p;
+  if (state === undefined){
+    var state = await setState(true);
+  }
+
+  return state;
+}
+
+
+// async start function so we can wait on the returned getState
+async function start(){
+  var enabled = await getState();
+  if (enabled){ movePersonal(); }
+}
+
+
+start();
