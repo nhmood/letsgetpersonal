@@ -80,5 +80,16 @@ async function toggleState(){
   await setState(!state);
   setStyle(!state);
 
+
+  // if the current tab is on a wikipedia page, then reload it
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    // kind of hacky way of determining if this tab is a wiki page
+    // if so, we should reload
+    // maybe replace this with proper regex later
+    if (tabs[0].url.indexOf("wikipedia.org") != -1){
+      chrome.tabs.reload(tabs[0].id, function(e){ });
+    }
+  });
+
   return true;
 }
