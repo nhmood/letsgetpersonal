@@ -1,0 +1,25 @@
+.header {
+  font-family: 'Baloo Bhai', cursive;
+  color: #FFB738;
+}
+
+.screenshot {
+  text-align: center;
+  font-size: 15px;
+}
+
+.screenshot p {
+  margin-bottom: 0px;
+}
+
+.footer {
+  padding-top: 4px;
+  border-top: 1px solid #efefef;
+  text-align: right;
+  padding-bottom: 30px;
+}
+
+.footer p {
+  margin-bottom: 0px;
+  padding-right: 40px;
+}
