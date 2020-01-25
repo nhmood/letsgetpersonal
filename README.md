@@ -3,7 +3,7 @@
 A simple Chrome Extension to move the "Personal Life" section on Wikipedia pages up to the top.
 
 ## But Why?
-![Tweet](https://raw.githubusercontent.com/nhmood/letsgetpersonal/master/images/tweet.png)
+![Tweet](https://raw.githubusercontent.com/nhmood/letsgetpersonal/master/docs/images/tweet.png)
 
 
 
@@ -15,7 +15,7 @@ You can download this extension from the [Chrome Web Store](https://chrome.googl
 
 ## Demo
 ### YouTube
-[![YouTube Demo](https://raw.githubusercontent.com/nhmood/letsgetpersonal/master/images/youtube-demo.png)](https://www.youtube.com/watch?v=Hdmvy-wX6qE)
+[![YouTube Demo](https://raw.githubusercontent.com/nhmood/letsgetpersonal/master/docs/images/youtube-demo.png)](https://www.youtube.com/watch?v=Hdmvy-wX6qE)
 
 
 ### Screenshots
