@@ -8,7 +8,7 @@ A simple Chrome Extension to move the "Personal Life" section on Wikipedia pages
 
 
 ## Ok, I'm In
-[![Chrome Store Link](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/lets-get-personal/nmoljaonpdnmhcohmpeejbfekcppmiol?hl=en&gl=US)  
+[![Chrome Store Link](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/mPGKYBIR2uCP0ApchDXE.png)](https://chrome.google.com/webstore/detail/lets-get-personal/nmoljaonpdnmhcohmpeejbfekcppmiol?hl=en&gl=US)  
 You can download this extension from the [Chrome Web Store](https://chrome.google.com/webstore/detail/lets-get-personal/nmoljaonpdnmhcohmpeejbfekcppmiol?hl=en&gl=US)
 
 
