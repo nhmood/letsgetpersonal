@@ -1,13 +1,13 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Let's Get Personal",
-  "version": "0.2",
+  "version": "0.3",
   "icons": {
     "16":   "images/icon16.png",
     "48":   "images/icon48.png",
     "128":  "images/icon128.png"
   },
-  "browser_action": {
+  "action": {
       "default_icon": {
          "16": "images/icon16.png",
          "24": "images/icon24.png",
@@ -15,9 +15,6 @@
       },
       "default_title": "Let's Get Personal",
       "default_popup": "popup/popup.html"
-  },
-  "background": {
-    "page": "popup/popup.html"
   },
   "content_scripts": [
     {
