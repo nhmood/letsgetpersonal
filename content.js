@@ -19,6 +19,8 @@ function movePersonal(){
     return;
   }
 
+  // move the Personal Life entry in the TOC list
+  moveTOC();
 
   // grab the parent node that houses the header
   var personal = personalHeader.parentNode;
@@ -63,11 +65,23 @@ function movePersonal(){
 
   // grab the table of contents and append this new persona life div
   // right before it
-  var toc = document.getElementById("toc");
+  var toc = document.querySelector('meta[property="mw:PageProp/toc"]');
   console.debug(toc);
   toc.parentNode.insertBefore(move, toc);
 
   return true;
+}
+
+function moveTOC(){
+  // grab the Personal Life TOC element, the "(Top)" starter element,
+  // and the next TOC element after "(Top)"
+  // we need to Node.insertBefore so the next TOC item is required
+  // (can't just insertAfter the Top element)
+  var tocPersonalLife = document.getElementById("toc-Personal_life");
+  var tocTop = document.getElementById("toc-mw-content-text");
+  var next = tocTop.nextElementSibling;
+
+  tocTop.parentNode.insertBefore(tocPersonalLife, next);
 }
 
 
