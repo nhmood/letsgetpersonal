@@ -1,12 +1,15 @@
 /*
- * let's get personal v0.1
+ * let's get personal v0.5
  * move the personal life section on wiki pages to the top
  *
  * nhmood @ goosecode
  * jan 14th, 2020
  *
 */
-console.log("Let's Get Personal v0.1");
+console.log("Let's Get Personal v0.5");
+
+// firefox/chrome localStorage compatibility
+if (typeof browser === "undefined"){ var browser = chrome; }
 
 
 function movePersonal(){
@@ -84,13 +87,25 @@ function moveTOC(){
   tocTop.parentNode.insertBefore(tocPersonalLife, next);
 }
 
-
-// get state from chrome storage
-async function getState(){
-  // wrap the chrome.storage.local.get call in a promise such that we can
+// set state into chrome storage
+async function setState(state){
+  // wrap the browser.storage.local.set call in a promise such that we can
   // await it and configure components synchronously
   var p = new Promise(function(resolve, reject){
-    chrome.storage.local.get('lgp_enabled', function(data) {
+    browser.storage.local.set({'lgp_enabled': state}, function(e) {
+      resolve(state);
+    });
+  });
+
+  return await p;
+}
+
+// get state from browser storage
+async function getState(){
+  // wrap the browser.storage.local.get call in a promise such that we can
+  // await it and configure components synchronously
+  var p = new Promise(function(resolve, reject){
+    browser.storage.local.get('lgp_enabled', function(data) {
       resolve( data.lgp_enabled );
     });
   });
@@ -104,7 +119,6 @@ async function getState(){
 
   return state;
 }
-
 
 // async start function so we can wait on the returned getState
 async function start(){

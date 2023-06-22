@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
   initState();
 });
 
+// firefox/chrome localStorage compatibility
+if (typeof browser === "undefined"){ var browser = chrome; }
 
 // initialize the state based on the current configuration
 async function initState(){
-  // await the getState (pulled from chrome.storage) then set style
+  // await the getState (pulled from browser.storage) then set style
   // in the browser action view
   var state = await getState();
   setStyle(state);
@@ -16,12 +18,12 @@ async function initState(){
   document.getElementsByTagName("body")[0].addEventListener("click", toggleState);
 }
 
-// set state into chrome storage
+// set state into browser storage
 async function setState(state){
-  // wrap the chrome.storage.local.set call in a promise such that we can
+  // wrap the browser.storage.local.set call in a promise such that we can
   // await it and configure components synchronously
   var p = new Promise(function(resolve, reject){
-    chrome.storage.local.set({'lgp_enabled': state}, function(e) {
+    browser.storage.local.set({'lgp_enabled': state}, function(e) {
       resolve(state);
     });
   });
@@ -30,12 +32,12 @@ async function setState(state){
 }
 
 
-// get state from chrome storage
+// get state from browser storage
 async function getState(){
-  // wrap the chrome.storage.local.get call in a promise such that we can
+  // wrap the browser.storage.local.get call in a promise such that we can
   // await it and configure components synchronously
   var p = new Promise(function(resolve, reject){
-    chrome.storage.local.get('lgp_enabled', function(data) {
+    browser.storage.local.get('lgp_enabled', function(data) {
       resolve( data.lgp_enabled );
     });
   });
@@ -82,12 +84,12 @@ async function toggleState(){
 
 
   // if the current tab is on a wikipedia page, then reload it
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
     // kind of hacky way of determining if this tab is a wiki page
     // if so, we should reload
     // maybe replace this with proper regex later
     if (tabs[0].url.indexOf("wikipedia.org") != -1){
-      chrome.tabs.reload(tabs[0].id, function(e){ });
+      browser.tabs.reload(tabs[0].id, function(e){ });
     }
   });
 
