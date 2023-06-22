@@ -20,7 +20,7 @@ mkdir -p release
 for extension in ${extensions[@]}; do
   echo "building $extension"
   cp "manifest.$extension.json" extension/manifest.json
-  zip -r "release/LGP$version-$extension.zip" extension/*
+  (cd extension && pwd && zip -r "../release/LGP$version-$extension.zip" ./*)
 done
 
 # clean up the included manifest
